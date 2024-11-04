@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Registro</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('register') }}">
+                        {{ form.hidden_tag() }}  <!-- Isso deve gerar o campo oculto do CSRF -->
+
+                        <div class="form-group">
+                            {{ form.nome.label(class="form-label") }}
+                            {{ form.nome(class="form-control", placeholder="Digite seu nome") }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.email.label(class="form-label") }}
+                            {{ form.email(class="form-control", placeholder="Digite seu email") }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.idade.label(class="form-label") }}
+                            {{ form.idade(class="form-control", placeholder="Digite sua idade") }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.sexo.label(class="form-label") }}
+                            {{ form.sexo(class="form-control") }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.senha.label(class="form-label") }}
+                            {{ form.senha(class="form-control", placeholder="Digite sua senha") }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form.confirmar_senha.label(class="form-label") }}
+                            {{ form.confirmar_senha(class="form-control", placeholder="Confirme sua senha") }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Registrar</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <small>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login aqui</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

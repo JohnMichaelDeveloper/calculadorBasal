@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Login</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        <input type="hidden" class="hidden" name="{{ form.csrf_token.name }}" value="{{ form.csrf_token._value() }}">
+<!--                        {{ form.hidden_tag() }}-->
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            {{ form.email(class="form-control", placeholder="Digite seu email") }}
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="senha">Senha</label>
+                            {{ form.senha(class="form-control", placeholder="Digite sua senha") }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Entrar</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <small>Não tem uma conta? <a href="{{ url_for('register') }}">Cadastre-se aqui</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
